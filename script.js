@@ -41,7 +41,7 @@ ws.on('open', () => {
   // Measure websocket latency for each stream and print min/max/avg every 1 minute
   interval = setInterval(() => {
     streams.forEach(stream => {
-      console.log(`${stream}: min ${latencyStats[stream].min}ms, max ${latencyStats[stream].max}ms, avg ${Math.round(latencyStats[stream].total / latencyStats[stream].count)}ms`);
+      console.log(`${new Date().toISOString()} ${stream}: min ${latencyStats[stream].min}ms, max ${latencyStats[stream].max}ms, avg ${Math.round(latencyStats[stream].total / latencyStats[stream].count)}ms`);
       // Clear count and total since if the script is run for a very long time,
       // count and total could overflow.
       // Could also reset min and max if we want the min and max within the last minute.
